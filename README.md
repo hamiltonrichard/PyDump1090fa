@@ -2,7 +2,7 @@
 
 Py1090Dumpfa is a python class that can retrieve flight information ooriginating from the aircraftdata.json file found in Flight Aware's Pi Aware software. Pi Aware utlizes Dump1090, so it may be compatible with [MalcomRobb's fork](https://github.com/MalcolmRobb/dump1090) of [Antirez's dump1090](https://github.com/antirez/dump1090) as well. At this time it has only been tested with Flight Aware's [Pi Aware](https://github.com/flightaware/piaware).
 
-This document provides information about the member functions and their usage. See the PyDump1090 Setup documentation for using the library or running the sample application. 
+This document provides information about the member functions and their usage. See the [PyDump1090 Setup documentation](https://github.com/hamiltonrichard/PyDump1090fa/blob/main/Docs/PyDump1090faSetupInstructions.md) for using the library or running the sample application. 
 
 
 ## Class Initalization
