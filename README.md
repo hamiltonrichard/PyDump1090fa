@@ -138,31 +138,6 @@ Returns:
 3  a0fbfa       N/A  29.975052 -95.386209
 4  a5ff76  LXJ486    29.489182 -96.232734
 ```
-
-### get_aircraft_location_data()
-Drops entries with no latitude and longitude data.
-
-```python
-# Get aircraft data with valid latitude and longitude
-aircraft_location_data = flightdata.get_aircraft_location_data()
-if aircraft_location_data is not None:
-    print(aircraft_location_data.head())  # Print the first few rows of the DataFrame
-else:
-    print("No aircraft location data found.")
-```
-Returns
-
-```
-      hex    flight alt_baro alt_geom     gs  track baro_rate squawk emergency category  ... sil_type  gva  sda mlat tisb messages  seen  rssi                   nav_modes geom_rate
-0  a0a903  UAL1886    3975.0   4025.0  268.1  344.2     192.0   7432      none       A4  ...  perhour  2.0  2.0   []   []       70   0.7 -13.9                         N/A       N/A
-1  a8ec94  N674WM     3975.0   4050.0  270.0    4.9       0.0   2411      none       A2  ...  perhour  2.0  2.0   []   []      301   2.0 -14.2  [autopilot, althold, tcas]       N/A
-2  abdcdc  ASH6076   14925.0  15675.0  344.5   61.6   -1344.0   4510      none       A3  ...  perhour  2.0  2.0   []   []      479   0.2 -12.2     [autopilot, vnav, tcas]       N/A
-3  a1cb05  JBU201    33975.0  35850.0  442.8  287.2     -64.0   1315      none       A3  ...  perhour  2.0  2.0   []   []      202   0.6 -16.4                         N/A       N/A
-4  a65a56       N/A      N/A      N/A    N/A    N/A       N/A    N/A       N/A      N/A  ...      N/A  N/A  N/A   []   []        5  74.7 -20.6                         N/A       N/A
-
-[5 rows x 33 columns]
-```
-
 ### filter_aircraft_by_col()
 
 Filters aircraft data by a specific column and a list of one or more values.
