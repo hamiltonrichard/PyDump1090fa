@@ -97,13 +97,6 @@ class Py1090Dumpfa:
         else:
             return None
 
-    def get_aircraft_location_data(self):
-        """Drop entries with no latitude and longitude data"""
-        aircraft_data_df = self.get_aircraft_data()
-        if aircraft_data_df is not None:
-            aircraft_data_df = aircraft_data_df.dropna(subset=['lat', 'lon'])
-        return aircraft_data_df
-     
     def filter_aircraft_by_col(self, column_name, values, columns=None):
         """Retrieves aircraft data filtered by a specific column and a list of values,
         optionally selecting specific columns."""
