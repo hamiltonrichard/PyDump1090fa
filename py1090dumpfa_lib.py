@@ -103,30 +103,7 @@ class Py1090Dumpfa:
         if aircraft_data_df is not None:
             aircraft_data_df = aircraft_data_df.dropna(subset=['lat', 'lon'])
         return aircraft_data_df
-
-    def filter_aircraft_by_colX(self, column_name, columns=None):
-        """Retrieves aircraft data filtered by a specific column and a list of values,
-        optionally selecting specific columns."""
-        aircraft_data_df = self.get_aircraft_data()
-        if aircraft_data_df is not None:
-            try:
-                filtered_df = aircraft_data_df[aircraft_data_df[column_name]]
-                filtered_df = filtered_df.dropna(subset=['lat', 'lon'])  # Drop rows with no location data
-
-                # Check if the DataFrame is empty after filtering
-                if filtered_df.empty:
-                    logging.warning(f"No aircraft found with '{column_name}'.")
-                    return None
-                else:
-                    if columns:
-                        filtered_df = filtered_df[columns]
-                    return filtered_df
-            except KeyError:
-                logging.error(f"Error: Column '{column_name}' not found in aircraft data.")
-                return None
-        else:
-            return None
-        
+     
     def filter_aircraft_by_col(self, column_name, values, columns=None):
         """Retrieves aircraft data filtered by a specific column and a list of values,
         optionally selecting specific columns."""
