@@ -71,7 +71,7 @@ There are two configuration files required for py1090Dump. Both files shoule be 
 |File|Description|
 |:---|:---|
 |__aircraftdefaults.json__| Contans all the keys found in the aircraft.json file with default value of None for each of the keys|
-|__receiverlocation.json__| For distance calculations the latitude and longitude for the Pi Aware reciever should be added to this file. Use the coordinates assigned to your Pi Aware Reciever. This will be used in a future release to calulate aircraft distance from your Pi Aware system. You can also override the default URL http://localhost:8080/skyaware/data/aircraft.json if the script is exected remotely. |
+|__receiverlocation.json__| For distance calculations the latitude and longitude for the Pi Aware reciever should be added to this file. Use the coordinates assigned to your Pi Aware Reciever. This will be used in a future release to calulate aircraft distance from your Pi Aware system. You can also override the default URL if the script is executed remotely. |
 |||
 
 __NOTE:__ An alterative location for the aircraft.json file is http://localhost/dump1090-fa/data/aircraft.json. 
