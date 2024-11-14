@@ -1,0 +1,40 @@
+{
+  "now": null,
+  "aircraft": [
+    {
+      "hex": null,
+      "flight": null,
+      "alt_baro": null,
+      "alt_geom": null,
+      "gs": null,
+      "track": null,
+      "geom_rate": null,
+      "baro_rate": null,
+      "squawk": null,
+      "emergency": null,
+      "category": null,
+      "nav_qnh": null,
+      "nav_altitude_mcp": null,
+      "nav_heading": null,
+      "lat": null,
+      "lon": null,
+      "nic": null,
+      "rc": null,
+      "seen_pos": null,
+      "version": null,
+      "nic_baro": null,
+      "nac_p": null,
+      "nac_v": null,
+      "sil": null,
+      "sil_type": null,
+      "gva": null,
+      "sda": null,
+      "mlat": null,
+      "tisb": null,
+      "messages": null,
+      "seen": null,
+      "rssi": null,
+      "nav_modes": null
+    }
+  ]
+}
