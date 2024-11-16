@@ -61,7 +61,7 @@ __Levinshtein__: Computation package for Lenshtein distance and edit operations,
 Install the required Python modules:
 
 ```bash
-pip install pandas requests fuzzywuzzy Levenshtein
+pip install -r requirements.txt 
 ```
 ## Application Setup
 
