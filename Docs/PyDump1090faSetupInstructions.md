@@ -5,7 +5,7 @@ This document will describe the setup process to use the library and run the sam
 * Clone the PyDump1090fa repository
 * Create your Python Virtual Environment
 * Install the required Python Modules
-* Copy the _recieverdefaults.json_ file to /etc/pydump1090fa.
+* Copy the _receiverdefaults.json_ file to /etc/pydump1090fa.
 * Copy the _aircraftdefaults.json_ file to /etc/pydump1090fa.
 
 
@@ -57,6 +57,8 @@ __fuzzywuzzy__: For performing fuzzy string matching, which helps in matching fl
 
 __Levinshtein__: Computation package for Lenshtein distance and edit operations, string similarity, approximage median strings, generally string averaging, string sequence and set similarity. Used in fuzzy string matching. According to the [pypi.org website](https://pypi.org/project/python-Levenshtein/), this module was renamed from _python-Levenshtein_.
 
+__geopy__: Geopy makes it easy for Python developers to locate the coordinates of addresses, cities, countries, and landmarks across the globe using third-party geocoders and other data sources.
+
 
 Install the required Python modules:
 
@@ -71,7 +73,7 @@ There are two configuration files required for py1090Dump. Both files shoule be 
 |File|Description|
 |:---|:---|
 |__aircraftdefaults.json__| Contans all the keys found in the aircraft.json file with default value of None for each of the keys|
-|__receiverlocation.json__| For distance calculations the latitude and longitude for the Pi Aware reciever should be added to this file. Use the coordinates assigned to your Pi Aware Reciever. This will be used in a future release to calulate aircraft distance from your Pi Aware system. You can also override the default URL if the script is executed remotely. |
+|__receiverlocation.json__| For distance calculations the latitude and longitude for the Pi Aware receiver should be added to this file. Use the coordinates assigned to your Pi Aware receiver. This will be used in a future release to calulate aircraft distance from your Pi Aware system. You can also override the default URL if the script is executed remotely. |
 |||
 
 __NOTE:__ An alterative location for the aircraft.json file is http://localhost/dump1090-fa/data/aircraft.json. 
