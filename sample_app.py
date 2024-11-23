@@ -36,7 +36,7 @@ if __name__ == "__main__":
                ("Southwest Airlines",lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','SWA',flight_columns))), 
                ("Spirit",lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','NKS',flight_columns))), 
                ("United Airlines",lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','UAL',flight_columns))), 
-               ("Volaris",lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','VOI',flight_columns))), 
+               ("Volaris",lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','VOI',flight_columns))) 
 
             ]
 
