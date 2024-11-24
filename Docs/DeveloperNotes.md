@@ -198,6 +198,16 @@ print(f"The Haversine distance is: {distance} km")
 
 Using the coordinates of the aircraft and the piaware reciever, the following cod could be modfied to calculate the distance. 
 
+Latitude and Longitude for the reciever is in _recieverlocation.json_. Latitude and longitude can be access as follows:
+
+```python
+
+flightdata = Py1090Dumpfa()
+print (f"Reciever Latitude: {flightdata.rec_lat} Reciever Longitude: {flightdata.rec_lon}")
+
+```
+
+
 ## Distance code
 
 Copilot suggested this code:
