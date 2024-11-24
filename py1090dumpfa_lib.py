@@ -32,9 +32,31 @@ class Py1090Dumpfa:
             # Load aircraft defaults
             with open('/etc/py1090dumpfa/aircraftdefaults.json', 'r', encoding='utf-8') as f:
                 self.aircraft_defaults = json.load(f)
+            
+        except (FileNotFoundError, json.JSONDecodeError, ValueError) as exc:
+            logging.error(f"Initialization failed: {exc}")
+            raise RuntimeError("Unable to create PyDump1090fa object.") from exc
 
-            # Initialize aircraft data as a DataFrame
-            self.aircraft_data = pd.DataFrame()
+    def get_aircraft_data(self):
+        """Retrieves aircraft data, applies defaults, and returns a DataFrame."""
+        try:
+            response = requests.get(self.url, timeout=5)
+            response.raise_for_status()
+            aircraft_data = response.json()
+
+            # Validate aircraft data structure
+            if 'aircraft' not in aircraft_data:
+                raise ValueError("Invalid aircraft data format: missing 'aircraft' key")
+
+            # Add "now" to the flight_data class
+            self.data_timestamp = aircraft_data ['now']
+
+            # Convert JSON to DataFrame
+            df = pd.DataFrame(aircraft_data['aircraft'])
+
+            # Replace NaN with "N/A"
+            df = df.fillna("N/A")
+            return df
 
             # Fetch aircraft data upon initialization
             self.aircraft_data = self.get_aircraft_data()

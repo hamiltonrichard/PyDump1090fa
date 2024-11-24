@@ -2,3 +2,5 @@ __pycache__/
 myenv/
 .sample_app.py.swp
 *.log
+py1090dumpfa.log
+.*.swp
