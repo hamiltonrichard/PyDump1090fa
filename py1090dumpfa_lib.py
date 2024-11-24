@@ -48,8 +48,12 @@ class Py1090Dumpfa:
             if 'aircraft' not in aircraft_data:
                 raise ValueError("Invalid aircraft data format: missing 'aircraft' key")
 
+            # Extract 'now'
+            data_timestamp = aircraft_data['now']
+
             # Convert JSON to DataFrame
             df = pd.DataFrame(aircraft_data['aircraft'])
+            df['now'] = data_timestamp
 
             # Replace NaN with "N/A"
             df = df.fillna("N/A")
