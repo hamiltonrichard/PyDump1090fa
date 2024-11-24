@@ -28,3 +28,5 @@
 2024-11-23 22:06:29,983 - ERROR - Error: Column 'category' not found in aircraft data.
 2024-11-23 22:06:35,046 - ERROR - Error: Column 'category' not found in aircraft data.
 >>>>>>> testing
+2024-11-23 22:26:34,152 - ERROR - Error: Column 'category' not found in aircraft data.
+2024-11-23 22:26:39,203 - ERROR - Error: Column 'category' not found in aircraft data.
