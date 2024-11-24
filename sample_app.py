@@ -5,7 +5,7 @@ if __name__ == "__main__":
     try:
         # Create the flightdata object outside the loop
         flightdata = Py1090Dumpfa()
-        flight_columns=['hex','flight','track','gs','alt_baro','lat','lon']
+        flight_columns=['hex','flight','track','gs','alt_baro','lat','lon','now']
         flight_columns_emergency = ['hex','flight','track','gs','alt_baro','lat','lon', 'squawk','emergency']
         
         command_index = 0 # Initialize the command index
