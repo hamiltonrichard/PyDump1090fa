@@ -48,34 +48,6 @@ class Py1090Dumpfa:
             if 'aircraft' not in aircraft_data:
                 raise ValueError("Invalid aircraft data format: missing 'aircraft' key")
 
-            # Add "now" to the flight_data class
-            self.data_timestamp = aircraft_data ['now']
-
-            # Convert JSON to DataFrame
-            df = pd.DataFrame(aircraft_data['aircraft'])
-
-            # Replace NaN with "N/A"
-            df = df.fillna("N/A")
-            return df
-
-            # Fetch aircraft data upon initialization
-            self.aircraft_data = self.get_aircraft_data()
-
-        except (FileNotFoundError, json.JSONDecodeError, ValueError) as exc:
-            logging.error(f"Initialization failed: {exc}")
-            raise RuntimeError("Unable to create PyDump1090fa object.") from exc
-
-    def get_aircraft_data(self):
-        """Retrieves aircraft data, applies defaults, and returns a DataFrame."""
-        try:
-            response = requests.get(self.url, timeout=5)
-            response.raise_for_status()
-            aircraft_data = response.json()
-
-            # Validate aircraft data structure
-            if 'aircraft' not in aircraft_data:
-                raise ValueError("Invalid aircraft data format: missing 'aircraft' key")
-
             # Convert JSON to DataFrame
             df = pd.DataFrame(aircraft_data['aircraft'])
 
