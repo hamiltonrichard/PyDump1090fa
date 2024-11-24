@@ -57,8 +57,6 @@ __fuzzywuzzy__: For performing fuzzy string matching, which helps in matching fl
 
 __Levinshtein__: Computation package for Lenshtein distance and edit operations, string similarity, approximage median strings, generally string averaging, string sequence and set similarity. Used in fuzzy string matching. According to the [pypi.org website](https://pypi.org/project/python-Levenshtein/), this module was renamed from _python-Levenshtein_.
 
-__geopy__: Geopy makes it easy for Python developers to locate the coordinates of addresses, cities, countries, and landmarks across the globe using third-party geocoders and other data sources.
-
 
 Install the required Python modules:
 
