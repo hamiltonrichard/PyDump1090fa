@@ -75,8 +75,8 @@ class Py1090Dumpfa:
     def display_config(self):
         """Prints the configuration data."""
         print(f"Configuration data - Receiver URL: {self.url}, "
-              f"Receiver Latitude: {self.latitude}, "
-              f"Receiver Longitude: {self.longitude}")
+              f"Receiver Latitude: {self.rec_lat}, "
+              f"Receiver Longitude: {self.rec_lon}")
 
     def export_data_to_csv(self, filename='aircraft_data.csv'):
         """Calls get_aircraft_data and saves the data to a CSV file."""
