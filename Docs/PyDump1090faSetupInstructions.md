@@ -43,7 +43,7 @@ Once the environment is running install the python libraries.
 
 ### Installing the Python Modules (Linux)
 
-The following python modules are required:
+The following Python modules are required along with their dependancies:
 
 __json__: For handling JSON data, reading configuration files, and parsing JSON responses.
 
@@ -57,6 +57,7 @@ __fuzzywuzzy__: For performing fuzzy string matching, which helps in matching fl
 
 __Levinshtein__: Computation package for Lenshtein distance and edit operations, string similarity, approximage median strings, generally string averaging, string sequence and set similarity. Used in fuzzy string matching. According to the [pypi.org website](https://pypi.org/project/python-Levenshtein/), this module was renamed from _python-Levenshtein_.
 
+Review the _requirements.txt_ for a complete list of python modules. 
 
 Install the required Python modules:
 
