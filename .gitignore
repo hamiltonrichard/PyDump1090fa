@@ -4,3 +4,6 @@ myenv/
 *.log
 py1090dumpfa.log
 .*.swp
+dump*
+*.csv
+

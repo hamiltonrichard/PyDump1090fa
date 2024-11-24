@@ -1,5 +1,5 @@
 {
-    "lat": 29.9931,
-    "lon": -95.3416,
+    "rec_lat": 29.9931,
+    "rec_lon": -95.3416,
     "url": "http://localhost:8080/skyaware/data/aircraft.json"
 }

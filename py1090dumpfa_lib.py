@@ -23,11 +23,11 @@ class Py1090Dumpfa:
                 data = json.load(f)
 
             # Validate configuration data
-            if not all(key in data for key in ('lat', 'lon', 'url')):
+            if not all(key in data for key in ('rec_lat', 'rec_lon', 'url')):
                 raise ValueError("Missing configuration keys in receiverlocation.json")
 
-            self.latitude = data['lat']
-            self.longitude = data['lon']
+            self.rec_lat = data['rec_lat']
+            self.rec_lon = data['rec_lon']
             self.url = data['url']
 
             # Load aircraft defaults
