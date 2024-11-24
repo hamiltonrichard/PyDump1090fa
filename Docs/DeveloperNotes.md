@@ -33,7 +33,7 @@ The aircraft.json file can be broken down into the following details:
 | messages  | Integer | Total number of ADS-B messages received.            |
 | seen      | Float   | Time in seconds since the last message was seen.    |
 | rssi      | Float   | Received Signal Strength Indicator in dBm.          |
-
+| last_seen | Float   | Calculated field: now - seen |
 ## __Data Absence__
 
 Information in _aircraft.json_ dependant on what gets reported. This can include:

@@ -5,7 +5,7 @@ if __name__ == "__main__":
     try:
         # Create the flightdata object outside the loop
         flightdata = Py1090Dumpfa()
-        flight_columns=['hex','flight','track','gs','alt_baro','lat','lon','now']
+        flight_columns=['hex','flight','track','gs','alt_baro','lat','lon','now','seen','last_seen']
         flight_columns_emergency = ['hex','flight','track','gs','alt_baro','lat','lon', 'squawk','emergency']
         
         command_index = 0 # Initialize the command index
@@ -21,6 +21,7 @@ if __name__ == "__main__":
                ("High Performance Aircraft (A6)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A6'],flight_columns))), 
                ("Rotor Aircraft (A7)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A7'],flight_columns))), 
                ("Air France",lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','AFR',flight_columns))), 
+               ("Air Transport International", lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','ATN',flight_columns))),
                ("Alaska Airlines",lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','ASA',flight_columns))), 
                ("Commute Air",lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','UCA',flight_columns))), 
                ("Delta Airlines",lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','DAL',flight_columns))), 

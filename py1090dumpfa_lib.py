@@ -49,12 +49,20 @@ class Py1090Dumpfa:
             if 'aircraft' not in aircraft_data:
                 raise ValueError("Invalid aircraft data format: missing 'aircraft' key")
 
-            # Extract 'now'
+            # Extract 'now' and convert
             data_timestamp = aircraft_data['now']
-
+            utc_datetime = datetime.datetime.fromtimestamp(data_timestamp)
+            
             # Convert JSON to DataFrame
             df = pd.DataFrame(aircraft_data['aircraft'])
-            df['now'] = data_timestamp
+            
+            # Add now to the aircraft data
+
+            df['now'] = utc_datetime.strftime('%Y-%m-%d %H:%M:%S UTC')
+
+            # Calculate the last time an aircraft was seen
+            df['last_seen'] =df['seen'].apply(lambda x:utc_datetime - datetime.timedelta(seconds=x))
+            df['last_seen'] = df['last_seen'].dt.strftime('%Y-%m-%d %H:%M:%S UTC')
 
             # Replace NaN with "N/A"
             df = df.fillna("N/A")
