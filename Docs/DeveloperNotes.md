@@ -152,117 +152,64 @@ __Time Conversion__
 The following code can be used to convert time data in epoch format. 
 
 ```python
-# Function to convert seconds to hour:minute:second format
-def convert_seconds(seconds):
-    hours = int(seconds // 3600)
-    minutes = int((seconds % 3600) // 60)
-    secs = int(seconds % 60)
-    return f"{hours:02d}:{minutes:02d}:{secs:02d}"
-```
-__Converting Time__
+            # Add now to the aircraft data
+            df['now'] = utc_datetime.strftime('%Y-%m-%d %H:%M:%S UTC')
 
-__convert_seconds()__ can be applided to the 'seen' and 'seen_ps' dataframe members. 
-# Apply the conversion to the 'seen' column
-main_df['seen'] = main_df['seen'].apply(convert_seconds)
-# Apply the conversion to the 'seen_pos' column
-main_df['seen_pos'] = df['seen_ps'].apply(convert_seconds)
+            # Calculate the last time an aircraft was seen
+            df['last_seen'] = df['seen'].apply(lambda x:utc_datetime - datetime.timedelta(seconds=x))
+            df['last_seen'] = df['last_seen'].dt.strftime('%Y-%m-%d %H:%M:%S UTC')
+
+            # Calculate distance in nautical miles
+            df['distance'] = df.apply(lambda row: self.calculate_distance(row['lon'], row['lat']), axis=1)
 ```
 
 
-From copilot: 
-
-```python
-import math
-
-def haversine(lat1, lon1, lat2, lon2):
-    # Convert degrees to radians
-    lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
-
-    # Haversine formula
-    dlat = lat2 - lat1
-    dlon = lon2 - lon1
-    a = math.sin(dlat / 2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2)**2
-    c = 2 * math.asin(math.sqrt(a))
-
-    # Radius of Earth in kilometers. Use 3956 for miles. Determines return value units.
-    r = 6371
-    return c * r
-
-# Example usage
-distance = haversine(52.5200, 13.4050, 48.8566, 2.3522)  # Berlin to Paris
-print(f"The Haversine distance is: {distance} km")
-```
 
 
 ## __Distance Information__
 
-Using the coordinates of the aircraft and the piaware reciever, the following cod could be modfied to calculate the distance. 
+Using the coordinates of the aircraft and the piaware reciever, the following code is used to calculate the distance. Using the coordinates of the aircraft and the piaware reciever, the following cod could be modfied to calculate the distance. 
 
 Latitude and Longitude for the reciever is in _recieverlocation.json_. Latitude and longitude can be access as follows:
 
-```python
-
-flightdata = Py1090Dumpfa()
-print (f"Reciever Latitude: {flightdata.rec_lat} Reciever Longitude: {flightdata.rec_lon}")
-
-```
+Latitude and Longitude for the reciever is in _recieverlocation.json_. Latitude and longitude can be access as follows:
 
 
 ## Distance code
 
-Copilot suggested this code:
 
 ```python 
-import math
 
-def haversine(lat1, lon1, lat2, lon2):
-    # Convert decimal degrees to radians
-    lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
-    
-    # Haversine formula
-    dlat = lat2 - lat1
-    dlon = lon2 - lon1
-    a = math.sin(dlat/2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon/2)**2
-    c = 2 * math.asin(math.sqrt(a))
-    
-    # Radius of Earth in miles. Use 3956 for miles. Use 6371 for kilometers
-    r = 3956
-    return c * r
+    def haversine(self, lat1, lon1, lat2, lon2):
+        """
+        Calculate the great-circle distance between two points on Earth using the Haversine formula.
 
-# Example usage
-lat1, lon1 = 30.533194, -95.437354  # Point 1 coordinates
-lat2, lon2 = 34.052235, -118.243683  # Point 2 coordinates (Los Angeles, CA)
+        Args:
+            lat1 (float): Latitude of the first point in degrees.
+            lon1 (float): Longitude of the first point in degrees.
+            lat2 (float): Latitude of the second point in degrees.
+            lon2 (float): Longitude of the second point in degrees.
 
-distance = haversine(lat1, lon1, lat2, lon2)
-print(f"The distance between the points is {distance:.2f} miles")
+        Returns:
+            float: Distance between the two points in nautical miles.
+        """
+        # Convert degrees to radians
+        lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
+
+        # Haversine formula
+        dlat = lat2 - lat1
+        dlon = lon2 - lon1
+        a = math.sin(dlat / 2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2)**2
+        c = 2 * math.asin(math.sqrt(a))
+
+        # Radius of Earth in nautical miles
+        r = 3440 
+
+        return c * r
 ```
 The source of the code came from [The Where-To Github Repository](https://github.com/CS3216-WhereTo/where-to/blob/master/back_end/WhereTo/routes/routing_helper.py)
 
-```python
-import math
-
-def get_distance(p, q):
-    """Calculates Haversine distance between coordinates p and q
-
-    Parameters:
-        p (tuple): Coordinate in (lat,lon) format
-        q (tuple): Coordinate in (lat,lon) format
-
-    Returns:
-        float: Haversine distance (in meters)
-    """
-    lat1, lon1 = math.radians(p[0]), math.radians(p[1])
-    lat2, lon2 = math.radians(q[0]), math.radians(q[1])
-    dlat = lat2 - lat1
-    dlon = lon2 - lon1
-
-    a = math.sin(dlat / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2) ** 2
-    c = 2 * math.asin(math.sqrt(a))
-
-    return round(6371000 * c)
-```
-   
-
+ 
 ## __Display Options__
 
 Flight data could be displayed in sequence. THe following code explains how this could be possible:
