@@ -7,19 +7,19 @@ if __name__ == "__main__":
         flightdata = Py1090Dumpfa()
         flight_columns=['hex','flight','track','gs','alt_baro','lat','lon','now','seen','last_seen']
         flight_columns_emergency = ['hex','flight','track','gs','alt_baro','lat','lon', 'squawk','emergency']
-        
+        flight_distance=['hex','flight','distance'] 
         command_index = 0 # Initialize the command index
 
         while True:
             # Define the list of commands with titles and print statements
             commands = [
-               ("Light Aircraft (A1)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A1'],flight_columns))), 
-               ("Small Aircraft (A2)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A2'],flight_columns))), 
-               ("Large Aircraft (A3)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A3'],flight_columns))), 
-               ("Large High Vortext Aircraft (A4)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A4'],flight_columns))), 
-               ("Heavy Aircraft (A5)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A5'],flight_columns))), 
-               ("High Performance Aircraft (A6)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A6'],flight_columns))), 
-               ("Rotor Aircraft (A7)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A7'],flight_columns))), 
+               ("Light Aircraft (A1)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A1'],flight_distance))), 
+               ("Small Aircraft (A2)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A2'],flight_distance))), 
+               ("Large Aircraft (A3)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A3'],flight_distance))), 
+               ("Large High Vortext Aircraft (A4)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A4'],flight_distance))), 
+               ("Heavy Aircraft (A5)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A5'],flight_distance))), 
+               ("High Performance Aircraft (A6)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A6'],flight_distance))), 
+               ("Rotor Aircraft (A7)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A7'],flight_distance))), 
                ("Air France",lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','AFR',flight_columns))), 
                ("Air Transport International", lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','ATN',flight_columns))),
                ("Alaska Airlines",lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','ASA',flight_columns))), 
@@ -38,7 +38,6 @@ if __name__ == "__main__":
                ("Spirit",lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','NKS',flight_columns))), 
                ("United Airlines",lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','UAL',flight_columns))), 
                ("Volaris",lambda: print(flightdata.fuzzy_filter_aircraft_by_col('flight','VOI',flight_columns))) 
-
             ]
 
             print('\033c') 
