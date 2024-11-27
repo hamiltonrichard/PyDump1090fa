@@ -16,7 +16,7 @@ if __name__ == "__main__":
                ("Light Aircraft (A1)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A1'],flight_distance))), 
                ("Small Aircraft (A2)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A2'],flight_distance))), 
                ("Large Aircraft (A3)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A3'],flight_distance))), 
-               ("Large High Vortext Aircraft (A4)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A4'],flight_distance))), 
+               ("Large High Vortex Aircraft (A4)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A4'],flight_distance))), 
                ("Heavy Aircraft (A5)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A5'],flight_distance))), 
                ("High Performance Aircraft (A6)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A6'],flight_distance))), 
                ("Rotor Aircraft (A7)", lambda: print(flightdata.filter_aircraft_by_col('category', ['A7'],flight_distance))), 
