@@ -53,7 +53,7 @@ __pandas__: For data manipulation and analysis. It provides powerful data struct
 
 __requests__: For making HTTP requests to fetch aircraft data from a given URL.
 
-__fuzzywuzzy__: For performing fuzzy string matching, which helps in matching flight data with approximate values. 
+__rapidfuzz__: For performs fuzzy string matching, which helps in matching flight data with approximate values. Originally fuzzywuzzy was used. 
 
 __Levinshtein__: Computation package for Lenshtein distance and edit operations, string similarity, approximage median strings, generally string averaging, string sequence and set similarity. Used in fuzzy string matching. According to the [pypi.org website](https://pypi.org/project/python-Levenshtein/), this module was renamed from _python-Levenshtein_.
 
